@@ -20,8 +20,6 @@ const ShowEpisodes = () => {
     return watchedEpisodes.includes(`${id}-${episodeId}`);
   };
 
-  console.log(watchedEpisodes);
-
   return (
     <Box>
       {showEpisodes.map((episode) => (
