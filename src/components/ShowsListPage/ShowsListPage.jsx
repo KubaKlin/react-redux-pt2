@@ -1,32 +1,54 @@
-import { useGetShowsQuery } from '../../store/api';
-import { Container, Typography, Card, CardContent, Button } from '@mui/material';
+import { Container, Typography, Box, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { SearchBar } from "../SearchBar/SearchBar";
+import useShowsList from "../../hooks/useShowSearch";
 
 const ShowsListPage = () => {
-  const { data: tvShows = [] } = useGetShowsQuery();
+
+  const { tvShows } = useShowsList();
 
   return (
     <Container maxWidth="md">
+      <Typography variant="h3" gutterBottom>
+        TvShows
+      </Typography>
+      <SearchBar />
       {tvShows.map((show) => (
-        <Card key={show.id} sx={{ mb: 3 }}>
-          <CardContent>
-            <Typography variant="h5" gutterBottom>
+        <Box 
+          key={show.id}
+          sx={{ 
+            p: 3, 
+            px: 2, 
+            borderBottom: '1px solid #e3e3e3', 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center',
+            transition: 'background-color 0.2s ease-in-out',
+            '&:hover': {
+              backgroundColor: 'rgba(0, 0, 0, 0.04)',
+              cursor: 'pointer'
+            }
+          }}
+        >
+          <Box>
+            <Typography variant="h5">
               {show.name}
             </Typography>
-            <Typography color="text.secondary" sx={{ mb: 2 }}>
-              Average runtime: {show.averageRuntime} minutes
+            <Typography variant="subtitle2">
+              {show.premiered}
             </Typography>
-            <Button
-              component={Link}
-              to={`/show/${show.id}`}
-              variant="contained"
-              color="primary"
-              aria-label={`View details for ${show.name}`}
-            >
-              View Details
-            </Button>
-          </CardContent>
-        </Card>
+          </Box>
+
+          <Button
+            component={Link}
+            to={`/show/${show.id}`}
+            variant="contained"
+            color="primary"
+            aria-label={`View details for ${show.name}`}
+          >
+            View Details
+          </Button>
+        </Box>
       ))}
     </Container>
   );
