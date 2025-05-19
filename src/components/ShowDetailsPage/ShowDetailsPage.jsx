@@ -5,12 +5,12 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Grid,
   Chip,
   Button,
   Container,
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
+import ShowEpisodes from "./ShowEpisodes.jsx";
 
 const ShowDetailsPage = () => {
   const { id } = useParams();
@@ -33,11 +33,8 @@ const ShowDetailsPage = () => {
           >
             ← Back to Shows
           </Button>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={3}>
-              <Typography variant="h4" gutterBottom>
-                {tvShow.name}
-              </Typography>
+          <Box sx={{ mt: 1, display: 'flex', gap: 1}}>
+            <Box sx={{ minWidth: '200px', marginRight: 3 }}>
               {tvShow.image && (
                 <CardMedia
                   component="img"
@@ -46,17 +43,19 @@ const ShowDetailsPage = () => {
                   sx={{ borderRadius: 1 }}
                 />
               )}
-            </Grid>
-            <Grid item xs={12} md={9}>
-              <Box sx={{ mb: 2 }}>
-                <Typography
+            </Box>
+            <Box sx={{ marginTop: 1 }}>
+              <Typography variant="h4">
+                {tvShow.name}
+              </Typography>
+              <Typography
                   variant="subtitle1"
                   color="text.secondary"
                   gutterBottom
-                >
-                  Status: {tvShow.status} • {tvShow.averageRuntime} minutes per
-                  episode
-                </Typography>
+              >
+                Status: {tvShow.status}
+              </Typography>
+              <Box sx={{ mb: 2 }}>
                 {tvShow.genres && (
                   <Box sx={{ mb: 2 }}>
                     {tvShow.genres.map((genre) => (
@@ -77,30 +76,35 @@ const ShowDetailsPage = () => {
                 dangerouslySetInnerHTML={{ __html: tvShow.summary }}
               />
 
-              <Grid container spacing={2}>
-                <Grid item xs={6} sm={3}>
+              <Box sx={{ mt: 1, display: 'flex', gap: 4, alignItems: 'center'}}>
+                <Box item xs={6} sm={3}>
                   <Typography variant="subtitle2" color="text.secondary">
                     Language
                   </Typography>
                   <Typography variant="body1">{tvShow.language}</Typography>
-                </Grid>
-                <Grid item xs={6} sm={3}>
+                </Box>
+                <Box item xs={6} sm={3}>
                   <Typography variant="subtitle2" color="text.secondary">
                     Premiered
                   </Typography>
                   <Typography variant="body1">{tvShow.premiered}</Typography>
-                </Grid>
-                <Grid item xs={6} sm={3}>
+                </Box>
+                <Box item xs={6} sm={3}>
                   <Typography variant="subtitle2" color="text.secondary">
                     Rating
                   </Typography>
                   <Typography variant="body1">
                     {tvShow.rating?.average || 'N/A'}
                   </Typography>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
+                </Box>
+              </Box>
+
+              <Typography variant="h5" mt={4}>
+                Episodes
+              </Typography>
+              <ShowEpisodes />
+            </Box>
+          </Box>
         </CardContent>
       </Card>
     </Container>

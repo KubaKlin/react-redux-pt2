@@ -1,12 +1,12 @@
 import { useGetShowsQuery } from '../../store/api';
-import { Box, Typography, Card, CardContent, Button } from '@mui/material';
+import { Container, Typography, Card, CardContent, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const ShowsListPage = () => {
   const { data: tvShows = [] } = useGetShowsQuery();
 
   return (
-    <Box sx={{ p: 3 }}>
+    <Container maxWidth="md">
       {tvShows.map((show) => (
         <Card key={show.id} sx={{ mb: 3 }}>
           <CardContent>
@@ -28,7 +28,7 @@ const ShowsListPage = () => {
           </CardContent>
         </Card>
       ))}
-    </Box>
+    </Container>
   );
 };
 
