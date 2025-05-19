@@ -10,7 +10,7 @@ import {
   Container,
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
-import ShowEpisodes from "./ShowEpisodes.jsx";
+import ShowEpisodes from "./ShowEpisodes";
 
 const ShowDetailsPage = () => {
   const { id } = useParams();
