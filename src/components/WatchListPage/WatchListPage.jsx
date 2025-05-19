@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import { Box, Typography, Container, Button, Paper } from '@mui/material';
 import { useSelector } from "react-redux";
 import { useGetShowsQuery } from '../../store/api';
@@ -31,7 +31,7 @@ const WatchListPage = () => {
         sx={{ mb: 3, mt: 3 }}
         aria-label="Go back to shows list"
       >
-        ← Back to Shows
+        ← Back
       </Button>
       <Box>
         <Typography variant="h4" sx={{ mb: 2 }}>Your watch list</Typography>
@@ -39,11 +39,22 @@ const WatchListPage = () => {
           <Typography>No watched shows yet.</Typography>
         ) : (
           watchedShows.map((show) => (
-            <Paper key={show.id} sx={{ p: 2, mb: 2, px: 3 }} elevation={2}>
-              <Typography variant="h5">{show.name}</Typography>
-              <Typography variant="body2">
-                Watched episodes: {watchedMap[show.id.toString()].size}
-              </Typography>
+            <Paper key={show.id} sx={{ p: 2, mb: 2, px: 3, display: 'flex', justifyContent: 'space-between' }} elevation={2}>
+              <Box>
+                <Typography variant="h5">{show.name}</Typography>
+                <Typography variant="body2">
+                  Watched episodes: {watchedMap[show.id.toString()].size}
+                </Typography>
+              </Box>
+              <Button
+                component={Link}
+                to={`/show/${show.id}`}
+                variant="contained"
+                color="primary"
+                aria-label={`View details for ${show.name}`}
+              >
+                View Details
+              </Button>
             </Paper>
           ))
         )}

@@ -31,7 +31,7 @@ const ShowDetailsPage = () => {
             sx={{ mb: 3 }}
             aria-label="Go back to shows list"
           >
-            ← Back to Shows
+            ← Back
           </Button>
           <Box sx={{ mt: 1, display: 'flex', gap: 1}}>
             <Box sx={{ minWidth: '200px', marginRight: 3 }}>
