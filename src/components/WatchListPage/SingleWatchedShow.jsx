@@ -1,8 +1,8 @@
 import { useGetSingleShowEpisodesQuery } from '../../store/api';
 import { Box, Button, LinearProgress, Paper, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { useSelector } from "react-redux";
-import { selectShowRating } from "../../store/showRatingSlice";
+import { useSelector } from 'react-redux';
+import { selectShowRating } from '../../store/showRatingSlice';
 
 const SingleWatchedShow = ({ show, watchedCount }) => {
   const { data: episodes = [] } = useGetSingleShowEpisodesQuery(show.id);

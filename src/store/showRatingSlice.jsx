@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const loadState = () => {
   try {
@@ -38,6 +38,7 @@ export const showRatingSlice = createSlice({
 
 export const { setRating } = showRatingSlice.actions;
 
-export const selectShowRating = (state, showId) => state.showRating.ratings[showId] || null;
+export const selectShowRating = (state, showId) =>
+  state.showRating.ratings[showId] || null;
 
-export default showRatingSlice.reducer; 
+export default showRatingSlice.reducer;
