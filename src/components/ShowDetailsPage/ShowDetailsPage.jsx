@@ -8,17 +8,29 @@ import {
   Chip,
   Button,
   Container,
+  Rating,
+  Stack,
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setRating, selectShowRating } from '../../store/showRatingSlice';
 import ShowEpisodes from './ShowEpisodes';
 
 const ShowDetailsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { data: tvShow = {} } = useGetSingleShowQuery(id);
+  const userRating = useSelector((state) => selectShowRating(state, id));
 
   const handleBackClick = () => {
     navigate(-1);
+  };
+
+  const handleRatingChange = (event, newValue) => {
+    if (newValue) {
+      dispatch(setRating({ showId: id, rating: newValue }));
+    }
   };
 
   return (
@@ -91,11 +103,26 @@ const ShowDetailsPage = () => {
                 </Box>
                 <Box item xs={6} sm={3}>
                   <Typography variant="subtitle2" color="text.secondary">
-                    Rating
+                    Show Rating
                   </Typography>
                   <Typography variant="body1">
                     {tvShow.rating?.average || 'N/A'}
                   </Typography>
+                </Box>
+                <Box item xs={6} sm={3}>
+                  <Typography variant="subtitle2" color="text.secondary">
+                    Your Rating
+                  </Typography>
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    <Rating
+                      value={userRating || 0}
+                      onChange={handleRatingChange}
+                      max={10}
+                      precision={1}
+                      size="large"
+                      aria-label={`Rate ${tvShow.name}`}
+                    />
+                  </Stack>
                 </Box>
               </Box>
 

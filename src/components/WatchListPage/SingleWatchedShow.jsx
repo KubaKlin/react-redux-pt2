@@ -1,11 +1,14 @@
 import { useGetSingleShowEpisodesQuery } from '../../store/api';
 import { Box, Button, LinearProgress, Paper, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { selectShowRating } from "../../store/showRatingSlice";
 
 const SingleWatchedShow = ({ show, watchedCount }) => {
   const { data: episodes = [] } = useGetSingleShowEpisodesQuery(show.id);
   const totalEpisodes = episodes.length;
   const progress = (watchedCount / totalEpisodes) * 100;
+  const userRating = useSelector((state) => selectShowRating(state, show.id));
 
   return (
     <Paper
@@ -23,6 +26,11 @@ const SingleWatchedShow = ({ show, watchedCount }) => {
       <Box sx={{ flex: 1, mr: 2 }}>
         <Typography variant="h5">{show.name}</Typography>
       </Box>
+      {userRating && (
+        <Typography variant="body2" color="text.secondary">
+          ({userRating}/10)
+        </Typography>
+      )}
       <Box sx={{ mr: 4, mt: 0.5 }}>
         <LinearProgress
           variant="buffer"
