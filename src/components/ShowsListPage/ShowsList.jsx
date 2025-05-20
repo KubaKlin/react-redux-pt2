@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { Typography, Box, Button } from '@mui/material';
-import useShowsList from "../../hooks/useShowSearch";
+import useShowsList from '../../hooks/useShowSearch';
 
 const ShowsList = () => {
   const { tvShows } = useShowsList();
@@ -20,17 +20,13 @@ const ShowsList = () => {
             transition: 'background-color 0.2s ease-in-out',
             '&:hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.04)',
-              cursor: 'pointer'
-            }
+              cursor: 'pointer',
+            },
           }}
         >
           <Box>
-            <Typography variant="h5">
-              {show.name}
-            </Typography>
-            <Typography variant="subtitle2">
-              {show.premiered}
-            </Typography>
+            <Typography variant="h5">{show.name}</Typography>
+            <Typography variant="subtitle2">{show.premiered}</Typography>
           </Box>
 
           <Button
@@ -45,7 +41,7 @@ const ShowsList = () => {
         </Box>
       ))}
     </Box>
-  )
-}
+  );
+};
 
 export default ShowsList;

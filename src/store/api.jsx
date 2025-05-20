@@ -16,8 +16,12 @@ export const api = createApi({
     getSingleShowEpisodes: builder.query({
       query: (id) => `shows/${id}/episodes`,
       providesTags: ['Shows'],
-    })
+    }),
   }),
 });
 
-export const { useGetShowsQuery, useGetSingleShowQuery, useGetSingleShowEpisodesQuery } = api;
+export const {
+  useGetShowsQuery,
+  useGetSingleShowQuery,
+  useGetSingleShowEpisodesQuery,
+} = api;

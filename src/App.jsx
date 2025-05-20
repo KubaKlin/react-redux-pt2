@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import ShowsListPage from './components/ShowsListPage/ShowsListPage';
 import ShowDetailsPage from './components/ShowDetailsPage/ShowDetailsPage';
-import WatchListPage from "./components/WatchListPage/WatchListPage";
+import WatchListPage from './components/WatchListPage/WatchListPage';
 
 const App = () => {
   return (

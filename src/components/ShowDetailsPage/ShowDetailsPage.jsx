@@ -10,7 +10,7 @@ import {
   Container,
 } from '@mui/material';
 import { useParams, useNavigate } from 'react-router-dom';
-import ShowEpisodes from "./ShowEpisodes";
+import ShowEpisodes from './ShowEpisodes';
 
 const ShowDetailsPage = () => {
   const { id } = useParams();
@@ -33,7 +33,7 @@ const ShowDetailsPage = () => {
           >
             ← Back
           </Button>
-          <Box sx={{ mt: 1, display: 'flex', gap: 1}}>
+          <Box sx={{ mt: 1, display: 'flex', gap: 1 }}>
             <Box sx={{ minWidth: '200px', marginRight: 3 }}>
               {tvShow.image && (
                 <CardMedia
@@ -45,13 +45,11 @@ const ShowDetailsPage = () => {
               )}
             </Box>
             <Box sx={{ marginTop: 1 }}>
-              <Typography variant="h4">
-                {tvShow.name}
-              </Typography>
+              <Typography variant="h4">{tvShow.name}</Typography>
               <Typography
-                  variant="subtitle1"
-                  color="text.secondary"
-                  gutterBottom
+                variant="subtitle1"
+                color="text.secondary"
+                gutterBottom
               >
                 Status: {tvShow.status}
               </Typography>
@@ -76,7 +74,9 @@ const ShowDetailsPage = () => {
                 dangerouslySetInnerHTML={{ __html: tvShow.summary }}
               />
 
-              <Box sx={{ mt: 1, display: 'flex', gap: 4, alignItems: 'center'}}>
+              <Box
+                sx={{ mt: 1, display: 'flex', gap: 4, alignItems: 'center' }}
+              >
                 <Box item xs={6} sm={3}>
                   <Typography variant="subtitle2" color="text.secondary">
                     Language

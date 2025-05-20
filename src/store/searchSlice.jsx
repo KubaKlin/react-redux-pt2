@@ -18,4 +18,4 @@ export const { setSearchQuery } = searchSlice.actions;
 
 export const selectSearchQuery = (state) => state.search.searchQuery;
 
-export default searchSlice.reducer; 
+export default searchSlice.reducer;

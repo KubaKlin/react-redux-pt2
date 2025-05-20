@@ -12,9 +12,7 @@ const useShowsList = () => {
 
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
-      result = result.filter(show =>
-        show.name.toLowerCase().includes(query)
-      );
+      result = result.filter((show) => show.name.toLowerCase().includes(query));
     }
 
     return result;

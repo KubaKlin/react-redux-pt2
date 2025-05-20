@@ -22,14 +22,17 @@ export const watchedSlice = createSlice({
       const { showId, episodeId } = action.payload;
       const episodeKey = `${showId}-${episodeId}`;
       const index = state.watchedEpisodes.indexOf(episodeKey);
-      
+
       if (index === -1) {
         state.watchedEpisodes.push(episodeKey);
       } else {
         state.watchedEpisodes.splice(index, 1);
       }
-      
-      localStorage.setItem('watchedEpisodes', JSON.stringify(state.watchedEpisodes));
+
+      localStorage.setItem(
+        'watchedEpisodes',
+        JSON.stringify(state.watchedEpisodes),
+      );
     },
   },
 });
