@@ -27,8 +27,8 @@ const SingleWatchedShow = ({ show, watchedCount }) => {
         <Typography variant="h5">{show.name}</Typography>
       </Box>
       {userRating && (
-        <Typography variant="body2" color="text.secondary">
-          ({userRating}/10)
+        <Typography variant="body2" color="text.secondary" sx={{ mr: 3 }}>
+          Your rating: ({userRating}/10)
         </Typography>
       )}
       <Box sx={{ mr: 4, mt: 0.5 }}>
