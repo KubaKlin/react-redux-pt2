@@ -9,6 +9,11 @@ export const api = createApi({
       query: () => '/shows',
       providesTags: ['Shows'],
     }),
+    searchShows: builder.query({
+      query: (query) => `/search/shows?q=${encodeURIComponent(query)}`,
+      transformResponse: (response) => response.map(item => item.show),
+      providesTags: ['Shows'],
+    }),
     getSingleShow: builder.query({
       query: (id) => `shows/${id}`,
       providesTags: ['Shows'],
@@ -22,6 +27,7 @@ export const api = createApi({
 
 export const {
   useGetShowsQuery,
+  useSearchShowsQuery,
   useGetSingleShowQuery,
   useGetSingleShowEpisodesQuery,
 } = api;
