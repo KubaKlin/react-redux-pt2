@@ -10,13 +10,13 @@ const ShowsList = () => {
       {tvShows.map((show) => (
         <Box
           key={show.id}
+          p={3}
+          px={2}
+          borderBottom="1px solid #e3e3e3"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
           sx={{
-            p: 3,
-            px: 2,
-            borderBottom: '1px solid #e3e3e3',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
             transition: 'background-color 0.2s ease-in-out',
             '&:hover': {
               backgroundColor: 'rgba(0, 0, 0, 0.04)',
