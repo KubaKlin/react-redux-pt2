@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Box, Typography, Container, Button } from '@mui/material';
+import { Box, Typography, Container, Button, CircularProgress } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useGetShowsQuery } from '../../store/api';
 import SingleWatchedShow from './SingleWatchedShow';
@@ -13,7 +13,7 @@ const WatchListPage = () => {
   const watchedEpisodes = useSelector(
     (state) => state.watchedEpisodes.watchedEpisodes,
   );
-  const { data: shows = [] } = useGetShowsQuery();
+  const { data: shows = [], isLoading } = useGetShowsQuery();
 
   const watchedMap = watchedEpisodes.reduce((accumulator, entry) => {
     const [showId, episodeId] = entry.split('-');
@@ -38,7 +38,11 @@ const WatchListPage = () => {
         <Typography variant="h4" sx={{ mb: 2 }}>
           Your watch list
         </Typography>
-        {watchedShows.length === 0 ? (
+        {isLoading ? (
+          <Box display="flex" justifyContent="center" alignItems="center" minHeight="200px">
+            <CircularProgress />
+          </Box>
+        ) : watchedShows.length === 0 ? (
           <Typography>No watched shows yet.</Typography>
         ) : (
           watchedShows.map((show) => (

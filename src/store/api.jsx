@@ -11,7 +11,6 @@ export const api = createApi({
     }),
     searchShows: builder.query({
       query: (query) => `/search/shows?q=${encodeURIComponent(query)}`,
-      transformResponse: (response) => response.map(item => item.show),
       providesTags: ['Shows'],
     }),
     getSingleShow: builder.query({
