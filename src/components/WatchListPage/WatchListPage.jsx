@@ -1,5 +1,11 @@
 import { useNavigate } from 'react-router-dom';
-import { Box, Typography, Container, Button, CircularProgress } from '@mui/material';
+import {
+  Box,
+  Typography,
+  Container,
+  Button,
+  CircularProgress,
+} from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useGetShowsQuery } from '../../store/api';
 import SingleWatchedShow from './SingleWatchedShow';
@@ -39,7 +45,12 @@ const WatchListPage = () => {
           Your watch list
         </Typography>
         {isLoading ? (
-          <Box display="flex" justifyContent="center" alignItems="center" minHeight="200px">
+          <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            minHeight="200px"
+          >
             <CircularProgress />
           </Box>
         ) : watchedShows.length === 0 ? (
