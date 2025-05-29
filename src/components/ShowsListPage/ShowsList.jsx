@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Typography, Box, Button } from '@mui/material';
-import useShowsList from '../../hooks/useShowSearch';
+import { useShowsList } from './useShowSearch';
 
-const ShowsList = () => {
+export const ShowsList = () => {
   const { tvShows } = useShowsList();
 
   return (
@@ -43,5 +43,3 @@ const ShowsList = () => {
     </Box>
   );
 };
-
-export default ShowsList;

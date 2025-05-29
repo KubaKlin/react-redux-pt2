@@ -1,8 +1,8 @@
-import { useGetShowsQuery, useSearchShowsQuery } from '../store/api';
+import { useGetShowsQuery, useSearchShowsQuery } from '../../store/api';
 import { useSelector } from 'react-redux';
-import { selectSearchQuery } from '../store/searchSlice';
+import { selectSearchQuery } from '../../store/searchSlice';
 
-const useShowsList = () => {
+export const useShowsList = () => {
   const searchQuery = useSelector(selectSearchQuery);
   const { data: allShows = [] } = useGetShowsQuery(undefined, {
     skip: searchQuery,
@@ -15,5 +15,3 @@ const useShowsList = () => {
     tvShows: searchQuery ? searchResults : allShows,
   };
 };
-
-export default useShowsList;

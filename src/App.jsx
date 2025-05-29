@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import ShowsListPage from './components/ShowsListPage/ShowsListPage';
-import ShowDetailsPage from './components/ShowDetailsPage/ShowDetailsPage';
-import WatchListPage from './components/WatchListPage/WatchListPage';
+import { ShowsListPage } from './components/ShowsListPage/ShowsListPage';
+import { ShowDetailsPage } from './components/ShowDetailsPage/ShowDetailsPage';
+import { WatchListPage } from './components/WatchListPage/WatchListPage';
 
-const App = () => {
+export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/shows" replace />} />
@@ -13,5 +13,3 @@ const App = () => {
     </Routes>
   );
 };
-
-export default App;

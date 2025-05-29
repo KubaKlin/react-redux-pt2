@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectShowRating } from '../../store/showRatingSlice';
 
-const SingleWatchedShow = ({ show, watchedCount }) => {
+export const SingleWatchedShow = ({ show, watchedCount }) => {
   const { data: episodes = [] } = useGetSingleShowEpisodesQuery(show.id);
   const totalEpisodes = episodes.length;
   const progress = (watchedCount / totalEpisodes) * 100;
@@ -53,5 +53,3 @@ const SingleWatchedShow = ({ show, watchedCount }) => {
     </Paper>
   );
 };
-
-export default SingleWatchedShow;

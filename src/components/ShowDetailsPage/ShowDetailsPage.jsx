@@ -14,9 +14,9 @@ import {
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRating, selectShowRating } from '../../store/showRatingSlice';
-import ShowEpisodes from './ShowEpisodes';
+import { ShowEpisodes } from './ShowEpisodes';
 
-const ShowDetailsPage = () => {
+export const ShowDetailsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -137,5 +137,3 @@ const ShowDetailsPage = () => {
     </Container>
   );
 };
-
-export default ShowDetailsPage;

@@ -8,9 +8,9 @@ import {
 } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useGetShowsQuery } from '../../store/api';
-import SingleWatchedShow from './SingleWatchedShow';
+import { SingleWatchedShow } from './SingleWatchedShow';
 
-const WatchListPage = () => {
+export const WatchListPage = () => {
   const navigate = useNavigate();
   const handleBackClick = () => {
     navigate(-1);
@@ -68,5 +68,3 @@ const WatchListPage = () => {
     </Container>
   );
 };
-
-export default WatchListPage;

@@ -12,7 +12,7 @@ import { toggleWatched } from '../../store/episodeWatchedSlice';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-const ShowEpisodes = () => {
+export const ShowEpisodes = () => {
   const { id } = useParams();
   const { data: showEpisodes = [] } = useGetSingleShowEpisodesQuery(id);
   const dispatch = useDispatch();
@@ -83,5 +83,3 @@ const ShowEpisodes = () => {
     </Box>
   );
 };
-
-export default ShowEpisodes;

@@ -1,9 +1,9 @@
 import { Container, Typography, Box, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { SearchBar } from '../SearchBar/SearchBar';
-import ShowsList from './ShowsList';
+import { ShowsList } from './ShowsList';
 
-const ShowsListPage = () => {
+export const ShowsListPage = () => {
   return (
     <Container maxWidth="md">
       <Box
@@ -29,5 +29,3 @@ const ShowsListPage = () => {
     </Container>
   );
 };
-
-export default ShowsListPage;
