@@ -44,7 +44,8 @@ export const WatchListPage = () => {
         <Typography variant="h4" sx={{ mb: 2 }}>
           Your watch list
         </Typography>
-        {isLoading ? (
+
+        {isLoading && (
           <Box
             display="flex"
             justifyContent="center"
@@ -53,7 +54,9 @@ export const WatchListPage = () => {
           >
             <CircularProgress />
           </Box>
-        ) : watchedShows.length === 0 ? (
+        )}
+
+        {watchedShows.length === 0 ? (
           <Typography>No watched shows yet.</Typography>
         ) : (
           watchedShows.map((show) => (
