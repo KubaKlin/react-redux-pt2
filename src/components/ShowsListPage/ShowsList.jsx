@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Typography, Box, Button } from '@mui/material';
-import { useShowsList } from './useShowSearch';
+import { useShowsList } from './useShowsList';
 
 export const ShowsList = () => {
   const { tvShows } = useShowsList();
