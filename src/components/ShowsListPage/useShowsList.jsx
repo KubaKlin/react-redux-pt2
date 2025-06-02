@@ -11,7 +11,9 @@ export const useShowsList = () => {
     skip: !searchQuery,
   });
 
+  const transformedSearchResults = searchResults.map((result) => result.show);
+
   return {
-    tvShows: searchQuery ? searchResults : allShows,
+    tvShows: searchQuery ? transformedSearchResults : allShows,
   };
 };
